@@ -342,8 +342,3 @@ import { upcomming } from 'yts-api-node';
 
 upcomming().then(results => /** ... */)
 ```
-
-###### Parameters
-| Parameter  | Required | Type              | Default | Description  |
-| ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
