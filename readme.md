@@ -32,12 +32,12 @@ search({ query_term: 'The hobbit', limit: 50 }).then(results => /** ... */)
 | ---------------- | -------- | ---------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------- |
 | `limit`          | ❌        | 1 - 50                                                                             | 20         | Limit result per page                                                |
 | `page`           | ❌        |                                                                                    | 1          | Used for paging                                                      |
-| `quality`        | ❌        | `720p | 1080p | 2160p | 3D | all`                                                  | All        | Filter by quality                                                    |
+| `quality`        | ❌        | `720p` `1080p` `2160p` `3D` `all`                                                  | All        | Filter by quality                                                    |
 | `minimum_rating` | ❌        | 0 - 9                                                                              | 0          | Filter by minimum IMDb rating                                        |
 | `query_term`     | ❌        | string                                                                             | ''         | Movie Title/IMDb Code, Actor Name/IMDb Code, Director Name/IMDb Code |
 | `genre`          | ❌        | string                                                                             | All        | Filter by genre                                                      |
-| `sort_by`        | ❌        | `title | year | rating | peers | seeds | download_count | like_count | date_added` | date_added | Sort result                                                          |
-| `order_by`       | ❌        | `asc | desc`                                                                       | desc       | Ascending or Descending order                                        |
+| `sort_by`        | ❌        | `title` `year` `rating` `peers` `seeds` `download_count` `like_count` `date_added` | date_added | Sort result                                                          |
+| `order_by`       | ❌        | `asc` `desc`                                                                       | desc       | Ascending or Descending order                                        |
 
 ###### Response
 ```typescript
@@ -114,7 +114,7 @@ details({ movie_id: 'tt2267998' }).then(results => /** ... */)
 ###### Parameters
 | Parameter     | Required | Type              | Default | Description               |
 | ------------- | -------- | ----------------- | ------- | ------------------------- |
-| `movie_id`    | ✅        | `number | string` |         | YTS movie ID or IMDb ID   |
+| `movie_id`    | ✅        | `number` `string` |         | YTS movie ID or IMDb ID   |
 | `with_images` | ❌        | boolean           | false   | Include images in result? |
 | `with_cast`   | ❌        | boolean           | false   | Include cast in result?   |
 
@@ -190,7 +190,7 @@ suggestions({ movie_id: 10 }).then(results => /** ... */)
 ###### Parameters
 | Parameter  | Required | Type              | Default | Description  |
 | ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number | string` |         | YTS movie ID |
+| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
 
 ###### Response
 
@@ -267,7 +267,7 @@ comments({ movie_id: 10 }).then(results => /** ... */)
 ###### Parameters
 | Parameter  | Required | Type              | Default | Description  |
 | ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number | string` |         | YTS movie ID |
+| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
 
 ### 📝 Reviews (not working)
 Route does not exist on [yts.mx/api/v2/](https://yts.mx/api/v2/movie_reviews.json). 
@@ -286,7 +286,7 @@ reviews({ movie_id: 10 }).then(results => /** ... */)
 ###### Parameters
 | Parameter  | Required | Type              | Default | Description  |
 | ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number | string` |         | YTS movie ID |
+| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
 
 ### 📝 Parentals
 
@@ -308,7 +308,7 @@ parentals({ movie_id: 10 }).then(results => /** ... */)
 ###### Parameters
 | Parameter  | Required | Type              | Default | Description  |
 | ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number | string` |         | YTS movie ID |
+| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
 
 ```typescript
 {
@@ -346,4 +346,4 @@ upcomming().then(results => /** ... */)
 ###### Parameters
 | Parameter  | Required | Type              | Default | Description  |
 | ---------- | -------- | ----------------- | ------- | ------------ |
-| `movie_id` | ✅        | `number | string` |         | YTS movie ID |
+| `movie_id` | ✅        | `number` `string` |         | YTS movie ID |
