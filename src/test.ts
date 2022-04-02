@@ -1,3 +1,3 @@
-import { search } from './main';
+import { details } from './main';
 
-search({ query_term: 'Gone Girl' }).then(response => console.log(response.data));
+details({ movie_id: 'tt2267998' }).then(response => console.log(response.data));

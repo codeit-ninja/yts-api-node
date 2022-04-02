@@ -72,8 +72,12 @@ export async function search(params?: YTS.ListMoviesParams, format?: YTS.ConfigT
  * @param format 
  * @returns 
  */
-export async function details(params?: YTS.MovieDetailsParams, format?: YTS.ConfigType['format']): Promise<YTS.DetailsResponse> {
-    return await doFetch(`${config.paths.details}.${format || config.format}`, params ? searchParams(params) : undefined, format);
+export async function details(params: YTS.MovieDetailsParams, format?: YTS.ConfigType['format']): Promise<YTS.DetailsResponse> {
+    if(typeof params.movie_id === 'string' && params.movie_id.match(/tt/)) {
+        return await doFetch(`${config.paths.details}.${format || config.format}`, searchParams(Object.assign({ imdb_id: params.movie_id }, params)), format);
+    }
+
+    return await doFetch(`${config.paths.details}.${format || config.format}`, searchParams(params), format);
 }
 /**
  * Returns 4 related movies as suggestions for the user
@@ -82,8 +86,8 @@ export async function details(params?: YTS.MovieDetailsParams, format?: YTS.Conf
  * @param format 
  * @returns 
  */
-export async function suggestions(params?: YTS.MovieSuggestions, format?: YTS.ConfigType['format']): Promise<YTS.SuggestionsResponse> {
-    return await doFetch(`${config.paths.suggestions}.${format || config.format}`, params ? searchParams(params) : undefined, format);
+export async function suggestions(params: YTS.MovieSuggestions, format?: YTS.ConfigType['format']): Promise<YTS.SuggestionsResponse> {
+    return await doFetch(`${config.paths.suggestions}.${format || config.format}`, searchParams(params), format);
 }
 /**
  * Returns all the comments for the specified movie
@@ -96,8 +100,8 @@ export async function suggestions(params?: YTS.MovieSuggestions, format?: YTS.Co
  * @param params 
  * @param format
  */
-export async function comments(params?: YTS.MovieComments, format?: YTS.ConfigType['format']) {
-    return await doFetch(`${config.paths.comments}.${format || config.format}`, params ? searchParams(params) : undefined, format);
+export async function comments(params: YTS.MovieComments, format?: YTS.ConfigType['format']) {
+    return await doFetch(`${config.paths.comments}.${format || config.format}`, searchParams(params), format);
 }
 /**
  * Returns all the IMDb movie reviews for the specified movie
@@ -110,8 +114,8 @@ export async function comments(params?: YTS.MovieComments, format?: YTS.ConfigTy
  * @param params 
  * @param format 
  */
-export async function reviews(params?: YTS.MovieReviews, format?: YTS.ConfigType['format']) {
-    return await doFetch(`${config.paths.reviews}.${format || config.format}`, params ? searchParams(params) : undefined, format);
+export async function reviews(params: YTS.MovieReviews, format?: YTS.ConfigType['format']) {
+    return await doFetch(`${config.paths.reviews}.${format || config.format}`, searchParams(params), format);
 }
 /**
  * Returns all the parental guide ratings for the specified movie
@@ -122,8 +126,8 @@ export async function reviews(params?: YTS.MovieReviews, format?: YTS.ConfigType
  * @param format 
  * @returns 
  */
-export async function parentals(params?: YTS.MovieParentalGuides, format?: YTS.ConfigType['format']) {
-    return await doFetch(`${config.paths.parentals}.${format || config.format}`, params ? searchParams(params) : undefined, format);
+export async function parentals(params: YTS.MovieParentalGuides, format?: YTS.ConfigType['format']) {
+    return await doFetch(`${config.paths.parentals}.${format || config.format}`, searchParams(params), format);
 }
 /**
  * Returns the 4 latest upcoming movies
