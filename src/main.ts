@@ -49,7 +49,7 @@ async function doFetch(path: string, params?: URLSearchParams, format = config.f
     }
     catch(e) {
         if ( e instanceof Error ) {
-            throw new YtsApiException(e.message, { cause: e })
+            throw new YtsApiException(e.message)
         }
         
         throw new YtsApiException('Could not fullfill request');

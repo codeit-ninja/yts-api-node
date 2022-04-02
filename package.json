@@ -1,6 +1,6 @@
 {
   "name": "yts-api-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A promised based node module to interact with the yts.mx api",
   "homepage": "https://github.com/codeit-ninja/yts-api-node.git",
   "keywords": [
