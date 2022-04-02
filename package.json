@@ -1,5 +1,5 @@
 {
-  "name": "yts-api",
+  "name": "yts-api-node",
   "version": "1.0.0",
   "description": "A promised based node module to interact with the yts.mx api",
   "homepage": "https://github.com/codeit-ninja/yts-api-node.git",
@@ -10,7 +10,7 @@
     "api",
     "yts"
   ],
-  "private": true,
+  "private": false,
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "scripts": {
